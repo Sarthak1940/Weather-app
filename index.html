@@ -1,0 +1,105 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="w-[100vw] h-[100vh] text-colorLight2 overflow-hidden">
+    
+    <main class="w-[550px] mx-auto">
+
+        <h1 class="text-center pt-[20px] text-[32px]">WEATHER APP</h1>
+
+        <div class="tab-container mt-14 flex justify-between">
+            <p class="py-[5px] px-[8px] cursor-pointer text-[0.875rem] tracking-[1.75px]"
+             data-userWeather>Your Weather</p>
+            <p class="py-[5px] px-[8px] cursor-pointer text-[0.875rem] tracking-[1.75px]"
+             data-searchWeather>Search Weather</p>
+        </div>
+
+        <div class="my-16">
+
+            <!-- grant location container-->
+            <div class="grant-location-container hidden flex-col items-center ">
+                <img src="./images/location.png" class="w-[80px] h-[80px] mb-8" loading="lazy">
+                <p class="text-[1.75rem] font-semibold">Grant Location Access</p>
+                <p class="text-[0.85rem] font-medium mt-3 mb-7">Allow Access to get weather Information</p>
+                <button class="text-[0.85rem] rounded-[5px] bg-colorDark2 py-[10px] px-[30px]"
+                 data-grantAccess>GRANT ACCESS</button>
+            </div>
+
+            <!-- search form -> form-container-->
+            <form class="form-container hidden justify-center items-center gap-[10px] mb-12" data-searchForm>
+                <input placeholder="Search for City..." 
+                class="h-[40px] w-[480px] px-5 bg-[rgba(219,226,239,0.5)] rounded-[10px] 
+                placeholder:text-[rgba(255,255,255,0.7)] focus:outline focus:outline-2 
+                focus:outline-[rgba(255,255,255,0.7)]" data-searchInput>
+                <button class="w-[40px] h-[40px] bg-colorDark2 flex justify-center items-center rounded-full" type="submit">
+                    <img src="./images/search.png"  width="20" height="20" loading="lazy">
+                </button>
+            </form>
+
+            <!--- loading screen container -->
+            <div class="loading-container hidden flex-col items-center">
+                <img src="./images/loading.gif" width="150" height="150">
+                <p>LOADING</p>
+            </div>
+
+            <!-- show weather info -->
+            <div class="user-info-container hidden flex-col items-center">
+
+                <!--city name and Flag-->
+                <div class="name flex items-center gap-2 mb-4">
+                    <p class="text-[2rem]" data-cityName></p>
+                    <img class="w-[30px]" data-countryIcon>
+                </div>
+
+                <!-- weather descriptuion-->
+                <p class="text-[1.5rem] font-extralight" data-weatherDesc></p>
+                <!--weather Icon-->
+                <img class="w-[90px] -mt-[1rem] h-[90px]" data-weatherIcon>
+                <!--temperature-->
+                <p class="text-[2.75rem] -mt-[1rem] font-bold" data-temp></p>
+
+                <!--3 cards - parameters-->
+                <div class="flex mt-8 gap-5">
+
+                    <!--card 1-->
+                    <div class="w-[30%] max-w-[200px] bg-[rgba(219,226,239,0.5)]
+                     rounded-[5px] p-4 gap-[5px] flex flex-col items-center">
+                        <img src="./images/wind.png" class="w-[50px] h-[50px]">
+                        <p class="text-[1.15rem] font-semibold">WINDSPEED</p>
+                        <p class="text-[1rem] font-extralight" data-windspeed></p>
+                    </div>
+
+                    <!--card 2-->
+                    <div class="w-[30%] max-w-[200px] bg-[rgba(219,226,239,0.5)]
+                     rounded-[5px] p-4 gap-[5px] flex flex-col items-center">
+                        <img src="./images/humidity.png" class="w-[50px] h-[50px]">
+                        <p class="text-[1.15rem] font-semibold">HUMIDITY</p>
+                        <p class="text-[1rem] font-extralight" data-humidity></p>
+                    </div>
+
+                    <!--card 3-->
+                    <div class="w-[30%] max-w-[200px] bg-[rgba(219,226,239,0.5)]
+                     rounded-[5px] p-4 gap-[5px] flex flex-col items-center">
+                        <img src="./images/cloud.png" class="w-[50px] h-[50px]">
+                        <p class="text-[1.15rem] font-semibold">CLOUDS</p>
+                        <p class="text-[1rem] font-extralight" data-cloudiness></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="index.js"></script>
+</body>
+</html>
